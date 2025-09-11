@@ -777,6 +777,16 @@
               <FileType>5</FileType>
               <FilePath>..\Hardware\mTimer.h</FilePath>
             </File>
+            <File>
+              <FileName>serial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\serial.c</FilePath>
+            </File>
+            <File>
+              <FileName>serial.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\serial.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -14,3 +14,6 @@
 库里面可能会有template后缀的库文件，删除即可。
 7.移植过程中，先不要添加标准库/HAL库进入项目编译，先加入StartUp、Start、User编译，保证固件库编
 译通过后，再添加库文件进行编译，所有的“main.h”都换成"config.h"
+
+Multi_timer使用时，记得将timer_ticks()放在SysTick_Handler()里面，因为HAL_SYSTICK_IRQHandler
+在中断向量表里没写，没办法调用，可能是因为STM32F1系列的问题吗？
