@@ -13,7 +13,8 @@ extern "C" {
 #define LED_PB0_GPIO_Port GPIOB
 
 void led_init(void);
-void led_toggle(void);
+void led1_toggle(void);
+void led2_toggle(void);
 
 #ifdef __cplusplus
 }

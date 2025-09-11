@@ -81,6 +81,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
+#include "multi_timer.h"
 
 /** @addtogroup STM32F1xx_HAL_Driver
   * @{
@@ -470,8 +471,8 @@ void HAL_SYSTICK_CLKSourceConfig(uint32_t CLKSource)
   * @retval None
   */
 void HAL_SYSTICK_IRQHandler(void)
-{
-  HAL_SYSTICK_Callback();
+{	
+  HAL_SYSTICK_Callback();	
 }
 
 /**

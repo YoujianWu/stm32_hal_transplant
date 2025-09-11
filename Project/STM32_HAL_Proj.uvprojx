@@ -48,14 +48,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>..\Output\Objects\</OutputDirectory>
+          <OutputDirectory>.\Objects\</OutputDirectory>
           <OutputName>STM32_HAL_Proj</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>..\Output\Listings\</ListingPath>
+          <ListingPath>.\Listings\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F103xB,USE_HAL_DRIVER,USE_FULL_ASSERT</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Hardware;..\Libaraies;..\Libaraies\Inc;..\Start;..\StartUp;..\User;..\Start\Core\Include</IncludePath>
+              <IncludePath>..\Hardware;..\Libaraies;..\Libaraies\Inc;..\Start;..\StartUp;..\User;..\Start\Core\Include;..\third_party\MultiTimer-legacy</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -766,6 +766,26 @@
               <FileName>LED.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Hardware\LED.h</FilePath>
+            </File>
+            <File>
+              <FileName>mTimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\mTimer.c</FilePath>
+            </File>
+            <File>
+              <FileName>mTimer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\mTimer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>third_party</GroupName>
+          <Files>
+            <File>
+              <FileName>multi_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\third_party\MultiTimer-legacy\multi_timer.c</FilePath>
             </File>
           </Files>
         </Group>

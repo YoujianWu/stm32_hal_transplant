@@ -34,9 +34,13 @@ void led_init(void)
 
 }
 
-void led_toggle(void)
+void led1_toggle(void)
 {
 	HAL_GPIO_TogglePin(LED_PA3_GPIO_Port,LED_PA3_Pin);
+}
+
+void led2_toggle(void)
+{
 	HAL_GPIO_TogglePin(LED_PB0_GPIO_Port,LED_PB0_Pin);
 }
 

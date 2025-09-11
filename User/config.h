@@ -39,6 +39,9 @@ typedef enum{ FALSE = 0, TRUE = !FALSE}BOOL;
 //-----------------------------------------------------	
 #include "system.h" // 系统滴答、HAL库、时钟初始化	
 	
+//第三方库文件包含	
+#include "multi_timer.h" // 系统滴答、HAL库、时钟初始化		
+	
 	
 //全局变量的定义，请用EXT修饰
 EXT unsigned char g_var;
