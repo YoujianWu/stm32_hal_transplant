@@ -17,3 +17,14 @@
 
 Multi_timer使用时，记得将timer_ticks()放在SysTick_Handler()里面，因为HAL_SYSTICK_IRQHandler
 在中断向量表里没写，没办法调用，可能是因为STM32F1系列的问题吗？
+
+当外部事件或内部事件满足条件时，会触发中断，调用中断向量表指向的函数，多个中断则按照优先级触发，重写中断函数有两种：
+1.重写USART1_IRQHandler（中断向量表指向的函数），可以在里面实现自己的功能
+2.重写HAL_UART_TxCpltCallback（中断会先触发USART1_IRQHandler，然后调用HAL_UART_IRQHandler(&huart1)，在这个
+函数里面会调用HAL_UART_TxCpltCallback，所以我们只需要重写这个回调函数即可，具体可以看it.c中断库）
+
+Gpio中断模式：
+External Interrupt Mode with Falling edge trigger detection(外部中断模式):
+“我检测到下降沿了，请CPU马上来处理！”
+External Event Mode with Falling edge trigger detection(外部事件模式)：
+“我检测到下降沿了，直接通知ADC开始采样，不用打扰CPU。”

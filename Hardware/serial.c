@@ -20,6 +20,7 @@ void serial_init(void)
     while(1);
   }
   
+  // 串口中断有多重接收模式
   // 启动串口接收非空中断（每有一个字节触发一次）
   __HAL_UART_ENABLE_IT(&huart1,UART_IT_RXNE);
   // 启动串口接收空闲中断（由忙到空闲触发一次）

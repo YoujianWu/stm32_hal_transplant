@@ -6,6 +6,7 @@
 #include "LED.h"	
 #include "mTimer.h"
 #include "serial.h"
+#include "key.h"
 
 int main(void)
 {
@@ -13,6 +14,7 @@ int main(void)
 	led_init();
 	mTimer_init();
 	serial_init();
+	key_init();
 	while (1)
 	{	
 //		led1_toggle();
