@@ -4,6 +4,7 @@
 struct Timer mtimer1;
 struct Timer mtimer2;
 struct Timer mtimer3;
+struct Timer mtimer4;
 
 void mtimer1_callback(void *arg)
 {
@@ -21,6 +22,11 @@ void mtimer3_callback(void *arg)
 	printf("system running time is : %d s \n", HAL_GetTick()/ (1000u / uwTickFreq));
 }
 
+void mtimer4_callback(void *arg)
+{
+	button_ticks();
+}
+
 void mTimer_init(void)
 {
    timer_init(&mtimer1, mtimer1_callback, 500, 500, NULL);
@@ -31,4 +37,7 @@ void mTimer_init(void)
 
    timer_init(&mtimer3, mtimer3_callback, 1000, 1000, NULL);
    timer_start(&mtimer3);	
+
+   timer_init(&mtimer4, mtimer4_callback, 0, 5, NULL);
+   timer_start(&mtimer4);		
 }

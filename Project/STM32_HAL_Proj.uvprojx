@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F103xB,USE_HAL_DRIVER,USE_FULL_ASSERT</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Hardware;..\Libaraies;..\Libaraies\Inc;..\Start;..\StartUp;..\User;..\Start\Core\Include;..\third_party\MultiTimer-legacy</IncludePath>
+              <IncludePath>..\Hardware;..\Libaraies;..\Libaraies\Inc;..\Start;..\StartUp;..\User;..\Start\Core\Include;..\third_party\MultiTimer-legacy;..\third_party\MultiButton-master</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -797,6 +797,16 @@
               <FileType>5</FileType>
               <FilePath>..\Hardware\key.h</FilePath>
             </File>
+            <File>
+              <FileName>mButton.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\mButton.c</FilePath>
+            </File>
+            <File>
+              <FileName>mButton.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\mButton.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -806,6 +816,11 @@
               <FileName>multi_timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\third_party\MultiTimer-legacy\multi_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>multi_button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\third_party\MultiButton-master\multi_button.c</FilePath>
             </File>
           </Files>
         </Group>

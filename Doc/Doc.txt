@@ -15,8 +15,13 @@
 7.移植过程中，先不要添加标准库/HAL库进入项目编译，先加入StartUp、Start、User编译，保证固件库编
 译通过后，再添加库文件进行编译，所有的“main.h”都换成"config.h"
 
-Multi_timer使用时，记得将timer_ticks()放在SysTick_Handler()里面，因为HAL_SYSTICK_IRQHandler
+在源文件里面声明了全局变量struct Timer mtimer1，然后又在头文件里面extern struct Timer mtimer1，是为了
+保证编译时，不会出现多次包含头文件，导致变量冲突的问题
+
+Multi_timer使用时，记得将timer_ticks()放在SysTick_Handler()里面，给它的定时器提供时基，因为HAL_SYSTICK_IRQHandler
 在中断向量表里没写，没办法调用，可能是因为STM32F1系列的问题吗？
+
+Multi_Button 要在 5ms 定时器中断中调用button_ticks()，5ms扫描一次按键，非常方便
 
 当外部事件或内部事件满足条件时，会触发中断，调用中断向量表指向的函数，多个中断则按照优先级触发，重写中断函数有两种：
 1.重写USART1_IRQHandler（中断向量表指向的函数），可以在里面实现自己的功能
