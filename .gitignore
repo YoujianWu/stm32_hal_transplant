@@ -1,2 +1,4 @@
-./CubeMx32_proj
+./CubeMx32_proj/Core
+./CubeMx32_proj/Drivers
+./CubeMx32_proj/MDK-ARM
 ./.idea
