@@ -807,6 +807,16 @@
               <FileType>5</FileType>
               <FilePath>..\Hardware\mButton.h</FilePath>
             </File>
+            <File>
+              <FileName>iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>iwdg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\iwdg.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
