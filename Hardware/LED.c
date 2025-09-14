@@ -31,7 +31,6 @@ void led_init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
   HAL_GPIO_Init(LED_PB0_GPIO_Port, &GPIO_InitStruct);
   
-
 }
 
 void led1_toggle(void)

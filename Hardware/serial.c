@@ -20,11 +20,12 @@ void serial_init(void)
     while(1);
   }
   
+  // 标准库的写法
   // 串口中断有多重接收模式
   // 启动串口接收非空中断（每有一个字节触发一次）
   __HAL_UART_ENABLE_IT(&huart1,UART_IT_RXNE);
   // 启动串口接收空闲中断（由忙到空闲触发一次）
-  __HAL_UART_ENABLE_IT(&huart1,UART_IT_RXNE);
+  __HAL_UART_ENABLE_IT(&huart1,UART_IT_IDLE);
   
 }	
 
@@ -92,6 +93,8 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
   }
 }
 
+
+// 标准库的写法
 void USART1_IRQHandler(void)
 {
 	uint8_t receive_char;

@@ -24,12 +24,27 @@ Multi_timer使用时，记得将timer_ticks()放在SysTick_Handler()里面，给
 Multi_Button 要在 5ms 定时器中断中调用button_ticks()，5ms扫描一次按键，非常方便
 
 当外部事件或内部事件满足条件时，会触发中断，调用中断向量表指向的函数，多个中断则按照优先级触发，重写中断函数有两种：
-1.重写USART1_IRQHandler（中断向量表指向的函数），可以在里面实现自己的功能
+1.重写USART1_IRQHandler（中断向量表指向的函数），可以在里面实现自己的功能（这种是标准库的写法，查标志位，执行代码，清除标志位）
 2.重写HAL_UART_TxCpltCallback（中断会先触发USART1_IRQHandler，然后调用HAL_UART_IRQHandler(&huart1)，在这个
-函数里面会调用HAL_UART_TxCpltCallback，所以我们只需要重写这个回调函数即可，具体可以看it.c中断库）
+函数里面会调用HAL_UART_TxCpltCallback，所以我们只需要重写这个回调函数即可，具体可以看it.c中断库）（这是封装了一层的写法）
 
 Gpio中断模式：
 External Interrupt Mode with Falling edge trigger detection(外部中断模式):
 “我检测到下降沿了，请CPU马上来处理！”
 External Event Mode with Falling edge trigger detection(外部事件模式)：
 “我检测到下降沿了，直接通知ADC开始采样，不用打扰CPU。”
+
+
+定时器的基本知识：若已经知道定时器所在总线的时钟频率，那么分频系数就是对其分频，得到定时器基本的运行频率，再设置计数值即可实现不同类型的计数
+eg: 若总线运行频率为72MHZ，（71+1）分频（65536）（最大），计数值为（999+1）（最大65536）,则计数时间为：1/(72MHZ/72)*1000 = 0.001s = 1ms
+
+定时器分为基本定时器、通用定时器、高级定时器，在stm32中tim1和tim8属于高级定时器，tim2-tim5为通用定时器，tim6、tim7属于基本定时器
+基本定时器：主要用于产生定时中断（就和multi_timer一样）
+通用定时器：包含多个捕获/比较通道，可以实现输入捕获、输出比较、PWM生成、单脉冲模式等多种功能。是应用最广泛的定时器类型
+高级定时器：除了具备通用定时器的所有功能外，还有以下功能：
+互补输出 (Complementary Outputs)：每个通道都有一个互补的输出引脚，这对于驱动H桥或三相电机至关重要，可以防止上下桥臂直通
+死区时间插入 (Dead-time Insertion)：在互补输出的高电平和低电平之间插入一段延迟时间，确保同一桥臂的上下两个开关管不会同时导通，提高系统安全性
+刹车功能 (Break Function / Braking)：可以由外部信号或内部错误快速强制关闭PWM输出，实现紧急停机，保护功率器件
+更复杂的计数模式和同步功能：支持更灵活的时钟源选择、多种时钟模式和与其他定时器的同步
+重复计数器 (Repetition Counter)：允许定时器在溢出前重复计数多次，用于实现更复杂的周期控制
+
