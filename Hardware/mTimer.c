@@ -48,7 +48,7 @@ void mTimer_init(void)
    timer_init(&mtimer4, mtimer4_callback, 0, 5, NULL);
    timer_start(&mtimer4);
 
-   timer_init(&mtimer5, mtimer5_callback, 1000, 1000, NULL);
-   timer_start(&mtimer5);			
+//   timer_init(&mtimer5, mtimer5_callback, 1000, 1000, NULL);
+//   timer_start(&mtimer5);			// 需要真实硬件测试
 	
 }

@@ -8,6 +8,8 @@
 #include "serial.h"
 #include "key.h"
 #include "mButton.h"
+#include "iwdg.h"
+#include "pwm.h"
 
 int main(void)
 {
@@ -17,7 +19,10 @@ int main(void)
 	serial_init(); // 需要真实硬件测试
 	key_init(); // 需要真实硬件测试
 	mButton_init(); // 需要真实硬件测试
-//	iwdg_init(); // 需要真实硬件测试
+	pwm_init();
+	
+//	iwdg_init(); // 需要真实硬件测试，需要放在所有的初始化后面，等所有硬件初始化完
+	
 	while (1)
 	{	
 //		led1_toggle();
